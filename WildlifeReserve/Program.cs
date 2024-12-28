@@ -1,7 +1,39 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.OpenApi.Models;
+using WildlifeReserve;
+using WildlifeReserve.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddControllers(); // Pouze pro Web API, bez zobrazení (views).
+
+// Nastavení DbContext pro připojení k databázi pomocí SQL Serveru.
+// dopnit pripojeni databaze ...
+
+// Nastavení Identity (pro autentizaci a autorizaci).
+builder.Services.AddIdentity<AppUser, IdentityRole>()
+    // Používá ApplicationDbContext pro práci s databází pro uživatelské účty.
+    .AddEntityFrameworkStores<ApplicationDbContext>()   
+    // Přidává výchozí poskytovatele tokenů pro funkce jako obnovení hesla nebo ověření účtu.
+    .AddDefaultTokenProviders();
+
+builder.Services.Configure<IdentityOptions>(options => {
+    // Nastavení pro hesla.
+    options.Password.RequiredLength = 6; // Minimum 6 znaků
+    options.Password.RequireDigit = true; // Heslo musí obsahovat alespon jednu cislici
+    options.Password.RequireLowercase = true; // Heslo musí obsahovat alespon jeden maly znak
+    options.Password.RequireUppercase = true; // Heslo musí obsahovat alespon jeden velky znak
+    options.Password.RequireNonAlphanumeric = false; // Heslo nemusí obsahovat specialní znaky
+});
+
+// Konfigurace cookies pro autentizaci aplikace.
+builder.Services.ConfigureApplicationCookie(options => {
+    options.Cookie.Name = "AspNetCore.Identity.Application"; // Nastavuje nazev cookie pro autentizaci
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(10);  // Cookie bude platit 10 minut
+    options.SlidingExpiration = true;   // Umožňuje obnovu platnosti cookie při každém požadavku (tzn. prodlužuje čas do vypršení, když uživatel aktivně používá aplikaci).
+}); 
+
+// Nastavení Swaggeru.
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options => {
     options.SwaggerDoc("v1", new OpenApiInfo {
@@ -17,6 +49,14 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment()) {
     app.UseSwagger();
     app.UseSwaggerUI();
+    app.UseHsts();
+    app.UseDeveloperExceptionPage();
 }
 
-app.Run();
+app.UseHttpsRedirection();  // Přesměrování na HTTPS pro zajištění bezpečného připojení.
+app.UseRouting();   // Umožňuje použití routování pro mapování požadavků HTTP na specifické akce kontrolérů.
+app.UseAuthentication();    // Aktivuje autentizaci pro ověření uživatele 
+app.MapControllers();     // Mapuje kontrolery na URL adresy.
+
+
+app.Run();  // Spustí aplikaci a zacne zpracovavat HTTP pozadavky
