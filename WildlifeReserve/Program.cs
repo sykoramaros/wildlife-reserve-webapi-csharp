@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using WildlifeReserve;
 using WildlifeReserve.Models;
@@ -8,7 +9,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers(); // Pouze pro Web API, bez zobrazení (views).
 
 // Nastavení DbContext pro připojení k databázi pomocí SQL Serveru.
-// dopnit pripojeni databaze ...
+builder.Services.AddDbContext<ApplicationDbContext>(options => {
+    options.UseMySql(builder.Configuration.GetConnectionString("MariaDBConnection"),new MySqlServerVersion(new Version(10,6, 28)));
+});
 
 // Nastavení Identity (pro autentizaci a autorizaci).
 builder.Services.AddIdentity<AppUser, IdentityRole>()
@@ -43,9 +46,15 @@ builder.Services.AddSwaggerGen(options => {
     });
 });
 
+
+
+
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+
+
+// Configure the HTTP request pipeline. Konfigurace HTTP pipeline pozadavku.
 if (app.Environment.IsDevelopment()) {
     app.UseSwagger();
     app.UseSwaggerUI();
@@ -59,4 +68,10 @@ app.UseAuthentication();    // Aktivuje autentizaci pro ověření uživatele
 app.MapControllers();     // Mapuje kontrolery na URL adresy.
 
 
+
+
+
+
 app.Run();  // Spustí aplikaci a zacne zpracovavat HTTP pozadavky
+
+  
