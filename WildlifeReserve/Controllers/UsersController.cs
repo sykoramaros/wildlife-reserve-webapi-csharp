@@ -7,11 +7,13 @@ namespace WildlifeReserve.Controllers;
 
 // ControllerBase je pro backend Web API a nepracuje s Views narozdil od Controller.
 [Route("api/[controller]")]
+[ApiController]
 public class UsersController : ControllerBase {
     private UserManager<AppUser> userManager;
     private IPasswordHasher<AppUser> passwordHasher;
     private IPasswordValidator<AppUser> passwordValidator;
     
+    // konstruktor
     public UsersController(UserManager<AppUser> userManager, IPasswordHasher<AppUser> passwordHasher, IPasswordValidator<AppUser> passwordValidator) {
         this.userManager = userManager; // ulozeni userManager
         this.passwordHasher = passwordHasher; // ulozeni passwordHasher hashovani hesel
@@ -42,7 +44,7 @@ public class UsersController : ControllerBase {
 
             // vytvoreni noveho uzyvatele
             AppUser appUser = new AppUser {
-                UserName = newUser.Email,
+                UserName = newUser.Name,
                 Email = newUser.Email
             };
             IdentityResult result = await userManager.CreateAsync(appUser, newUser.Password);
@@ -62,7 +64,7 @@ public class UsersController : ControllerBase {
         if (userToEdit == null) {
             return NotFound();    // 404 NotFound, pokud neexistuje uživatel s danou id
         }
-        userToEdit.UserName = editedUser.Email;
+        userToEdit.UserName = editedUser.Name;
         userToEdit.Email = editedUser.Email;
         IdentityResult result = await userManager.UpdateAsync(userToEdit);
         if (result.Succeeded) { 
