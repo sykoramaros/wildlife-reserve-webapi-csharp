@@ -10,7 +10,7 @@ builder.Services.AddControllers(); // Pouze pro Web API, bez zobrazení (views).
 
 // Nastavení DbContext pro připojení k databázi pomocí SQL Serveru.
 builder.Services.AddDbContext<ApplicationDbContext>(options => {
-    options.UseMySql(builder.Configuration.GetConnectionString("MariaDBConnection"),new MySqlServerVersion(new Version(10,6, 28)));
+    options.UseMySql(builder.Configuration.GetConnectionString("DBConnection"),new MySqlServerVersion(new Version(10,6, 28)));
 });
 
 // Nastavení Identity (pro autentizaci a autorizaci).
