@@ -9,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers(); // Pouze pro Web API, bez zobrazení (views).
 
 // Nastavení DbContext pro připojení k databázi pomocí SQL Serveru.
+//propojena lokalni databaze MAMP MySql (pro spravne fungovani musi MAMP bezet)
 builder.Services.AddDbContext<ApplicationDbContext>(options => {
     options.UseMySql(builder.Configuration.GetConnectionString("DBConnection"),new MySqlServerVersion(new Version(10,6, 28)));
 });
@@ -46,13 +47,7 @@ builder.Services.AddSwaggerGen(options => {
     });
 });
 
-
-
-
-
 var app = builder.Build();
-
-
 
 // Configure the HTTP request pipeline. Konfigurace HTTP pipeline pozadavku.
 if (app.Environment.IsDevelopment()) {
@@ -66,11 +61,6 @@ app.UseHttpsRedirection();  // Přesměrování na HTTPS pro zajištění bezpe�
 app.UseRouting();   // Umožňuje použití routování pro mapování požadavků HTTP na specifické akce kontrolérů.
 app.UseAuthentication();    // Aktivuje autentizaci pro ověření uživatele 
 app.MapControllers();     // Mapuje kontrolery na URL adresy.
-
-
-
-
-
 
 app.Run();  // Spustí aplikaci a zacne zpracovavat HTTP pozadavky
 
