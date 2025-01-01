@@ -83,7 +83,7 @@ public class ObservationController : ControllerBase {
         [FromQuery] int month,
         [FromQuery] [SwaggerParameter("Between 2008 and now")] int year) {
         if (day < 1 || day > 31 || month < 1 || month > 12 || year < 2008 || year > DateTime.Now.Year) {
-            return BadRequest("Invalid date. It must be between 2015-01-01 and now.");
+            return BadRequest("Invalid date. It must be between 2008-01-01 and now.");
         }
         string queryUrl = $"day={day}&month={month}&year={year}";
         var result = await observationService.GetObservationListAsync(queryUrl);
@@ -99,11 +99,18 @@ public class ObservationController : ControllerBase {
     
     [HttpGet("byMultipleFilters")]
     public async Task<ActionResult<ObservationListDto>> GetObservationsByMultipleFilters(
-        [FromQuery] string taxonName,
+        [FromQuery] string? taxonName,
         [FromQuery] double? nelat,
         [FromQuery] double? nelng,
         [FromQuery] double? swlat,
-        [FromQuery] double? swlng) {
+        [FromQuery] double? swlng,
+        [FromQuery] double? lat,
+        [FromQuery] double? lng,
+        [FromQuery] double? radius,
+        [FromQuery] int? day,
+        [FromQuery] int? month,
+        [FromQuery] int? year,
+        [FromQuery] bool? identified) {
         var queryParams = new List<string>();
         if (!string.IsNullOrWhiteSpace(taxonName)) {
             queryParams.Add($"taxon_name={taxonName}");
@@ -111,6 +118,44 @@ public class ObservationController : ControllerBase {
         if (nelat.HasValue && nelng.HasValue && swlat.HasValue && swlng.HasValue) {
             queryParams.Add($"nelat={nelat}&nelng={nelng}&swlat={swlat}&swlng={swlng}");
         }
+        if (lat.HasValue && lng.HasValue && radius.HasValue) {
+            if (lat < -90 || lat > 90) {
+                return BadRequest("Invalid lat value. It must be between -90 and 90.");
+            }
+            if (lng < -180 || lng > 180) {
+                return BadRequest("Invalid lng value. It must be between -180 and 180.");
+            }
+            if (radius <= 0) {
+                return BadRequest("Invalid radius value. It must be greater than 0.");
+            }
+            queryParams.Add($"lat={lat}&lng={lng}&radius={radius}");
+        }
+        if (year.HasValue) {
+            if (year < 2008 || year > DateTime.Now.Year) {
+                return BadRequest("Invalid date. It must be between 2008-01-01 and now.");
+            }
+            if (month.HasValue) {
+                if (month < 1 || month > 12) {
+                    return BadRequest("Invalid month value. It must be between 1 and 12.");
+                }
+                if (day.HasValue) {
+                    if (day < 1 || day > 31) {
+                        return BadRequest("Invalid day value. It must be between 1 and 31.");
+                    }
+                    queryParams.Add($"day={day}&month={month}&year={year}");
+                } else {
+                    queryParams.Add($"month={month}&year={year}");
+                }
+            } else {
+                queryParams.Add($"year={year}");
+            }
+        } else if (month.HasValue || day.HasValue) {
+            return BadRequest("Invalid date. It must be between 2008-01-01 and now.");
+        }
+        if (identified.HasValue) {
+            queryParams.Add($"identified={identified.ToString().ToLower()}");
+        }
+        // kontrola zda byl zadan alespon jeden filtr
         if (queryParams.Count == 0) {
             return BadRequest("At least one filter is required.");
         }

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WildlifeReserve")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+44ed1ce9984bbc7b11fef9c8a79586a2ea11de80")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+19d0d5cc2493f6c493c9b6527eb45eddbde842ef")]
 [assembly: System.Reflection.AssemblyProductAttribute("WildlifeReserve")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WildlifeReserve")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
