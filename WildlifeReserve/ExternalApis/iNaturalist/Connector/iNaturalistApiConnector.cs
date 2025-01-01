@@ -31,7 +31,6 @@ namespace WildlifeReserve.ExternalApis.iNaturalist.Connector
             string jsonData = await FetchJson(queryUrl);
             // Vrací získaný JSON jako odpověď
             return ObservationListDeserializer.FromJson(jsonData);
-
         }
     }
 }

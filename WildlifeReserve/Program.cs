@@ -56,6 +56,7 @@ builder.Services.AddSwaggerGen(options => {
         Version = "v1",
         Description = "API pro spravu divoke prirody"
     });
+    options.EnableAnnotations();
 });
 
 var app = builder.Build();

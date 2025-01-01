@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "SVtPIo0hyvY=",
+  "dgSpecHash": "JbeDNqdqSWs=",
   "success": true,
   "projectFilePath": "/Users/marosh/RiderProjects/C#/vlastni/WildlifeReserve/WildlifeReserve/WildlifeReserve.csproj",
   "expectedPackageFiles": [
@@ -73,6 +73,7 @@
     "/Users/marosh/.nuget/packages/runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "/Users/marosh/.nuget/packages/runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "/Users/marosh/.nuget/packages/swashbuckle.aspnetcore/7.2.0/swashbuckle.aspnetcore.7.2.0.nupkg.sha512",
+    "/Users/marosh/.nuget/packages/swashbuckle.aspnetcore.annotations/7.2.0/swashbuckle.aspnetcore.annotations.7.2.0.nupkg.sha512",
     "/Users/marosh/.nuget/packages/swashbuckle.aspnetcore.swagger/7.2.0/swashbuckle.aspnetcore.swagger.7.2.0.nupkg.sha512",
     "/Users/marosh/.nuget/packages/swashbuckle.aspnetcore.swaggergen/7.2.0/swashbuckle.aspnetcore.swaggergen.7.2.0.nupkg.sha512",
     "/Users/marosh/.nuget/packages/swashbuckle.aspnetcore.swaggerui/7.2.0/swashbuckle.aspnetcore.swaggerui.7.2.0.nupkg.sha512",
