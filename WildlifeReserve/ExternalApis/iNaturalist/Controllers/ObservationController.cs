@@ -8,28 +8,21 @@ namespace WildlifeReserve.ExternalApis.iNaturalist.Controllers;
 [ApiController]
 public class ObservationController : ControllerBase {
     private readonly ObservationService observationService;
-    
+
     public ObservationController(ObservationService observationService) {
         this.observationService = observationService;
     }
-    
-    [HttpGet("allObservations")]
-    public async Task<ActionResult<ObservationListDto>> GetAllObservations() {
-        var observations = await observationService.GetObservationListAsync();
-        return Ok(observations);
-    }
 
-    // https://api.inaturalist.org/v1/observations?place_guess={placeName}
-    // vraci ale vsechna pozorovani celkem
-    [HttpGet("byPlace")]
-    public async Task<ActionResult<ObservationListDto>> GetObservationsByPlaceName([FromQuery] string placeName) {
-        if (string.IsNullOrWhiteSpace(placeName)) {
-            return BadRequest("Place name is required.");
+    // https://api.inaturalist.org/v1/observations?taxon_name={taxonName}
+    // FUNGUJE DOBRE
+    [HttpGet("byTaxonName")]
+    public async Task<ActionResult<ObservationListDto>> GetObservationsByTaxonName([FromQuery] string taxonName) {
+        if (string.IsNullOrWhiteSpace(taxonName)) {
+            return BadRequest("Taxon name is required.");
         }
-        string queryUrl = $"place_guess={placeName}";
+
+        string queryUrl = $"taxon_name={taxonName}";
         var result = await observationService.GetObservationListAsync(queryUrl);
         return Ok(result);
     }
-    
-    
 }
