@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/marosh/RiderProjects/C#/vlastni/WildlifeReserve/WildlifeReserve/WildlifeReserve.csproj": {}
+    "/Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/WildlifeReserve.csproj": {}
   },
   "projects": {
-    "/Users/marosh/RiderProjects/C#/vlastni/WildlifeReserve/WildlifeReserve/WildlifeReserve.csproj": {
+    "/Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/WildlifeReserve.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/marosh/RiderProjects/C#/vlastni/WildlifeReserve/WildlifeReserve/WildlifeReserve.csproj",
+        "projectUniqueName": "/Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/WildlifeReserve.csproj",
         "projectName": "WildlifeReserve",
-        "projectPath": "/Users/marosh/RiderProjects/C#/vlastni/WildlifeReserve/WildlifeReserve/WildlifeReserve.csproj",
+        "projectPath": "/Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/WildlifeReserve.csproj",
         "packagesPath": "/Users/marosh/.nuget/packages/",
-        "outputPath": "/Users/marosh/RiderProjects/C#/vlastni/WildlifeReserve/WildlifeReserve/obj/",
+        "outputPath": "/Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/marosh/.nuget/NuGet/NuGet.Config"

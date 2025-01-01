@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Eq0OmYQ8kveH5KXlhEMgIZpeNeBeCyT6i3NBEs8y07Q=",
+  "Hash": "/X/ctMKWRmBdlwcvsyFOcpNndvITtQkcM18eXh3aAKQ=",
   "Source": "WildlifeReserve",
   "BasePath": "_content/WildlifeReserve",
   "Mode": "Default",
@@ -47,10 +47,10 @@
       "OriginalItemSpec": "/Users/marosh/.nuget/packages/microsoft.aspnetcore.components.quickgrid/8.0.11/staticwebassets/QuickGrid.razor.js"
     },
     {
-      "Identity": "/Users/marosh/RiderProjects/C#/vlastni/WildlifeReserve/WildlifeReserve/obj/Debug/net8.0/scopedcss/bundle/WildlifeReserve.styles.css",
+      "Identity": "/Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/obj/Debug/net8.0/scopedcss/bundle/WildlifeReserve.styles.css",
       "SourceId": "WildlifeReserve",
       "SourceType": "Computed",
-      "ContentRoot": "/Users/marosh/RiderProjects/C#/vlastni/WildlifeReserve/WildlifeReserve/obj/Debug/net8.0/scopedcss/bundle/",
+      "ContentRoot": "/Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/obj/Debug/net8.0/scopedcss/bundle/",
       "BasePath": "_content/WildlifeReserve",
       "RelativePath": "WildlifeReserve.styles.css",
       "AssetKind": "All",
@@ -63,7 +63,7 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/marosh/RiderProjects/C#/vlastni/WildlifeReserve/WildlifeReserve/obj/Debug/net8.0/scopedcss/bundle/WildlifeReserve.styles.css"
+      "OriginalItemSpec": "/Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/obj/Debug/net8.0/scopedcss/bundle/WildlifeReserve.styles.css"
     }
   ]
 }

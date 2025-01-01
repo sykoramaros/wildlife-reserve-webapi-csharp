@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JbeDNqdqSWs=",
+  "dgSpecHash": "3Qid9tLFifA=",
   "success": true,
-  "projectFilePath": "/Users/marosh/RiderProjects/C#/vlastni/WildlifeReserve/WildlifeReserve/WildlifeReserve.csproj",
+  "projectFilePath": "/Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/WildlifeReserve.csproj",
   "expectedPackageFiles": [
     "/Users/marosh/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/Users/marosh/.nuget/packages/microsoft.aspnetcore.authorization/8.0.11/microsoft.aspnetcore.authorization.8.0.11.nupkg.sha512",
