@@ -25,4 +25,17 @@ public class ObservationController : ControllerBase {
         var result = await observationService.GetObservationListAsync(queryUrl);
         return Ok(result);
     }
+    
+    // https://api.inaturalist.org/v1/observations?nelat={nelat}&nelng={nelng}&swlat={swlat}&swlng={swlng}
+    // FUNGUJE DOBRE
+    [HttpGet("byGeoLocation")]
+    public async Task<ActionResult<ObservationListDto>> GetObservationsByGeoLocation(
+        [FromQuery] double nelat,
+        [FromQuery] double nelng,
+        [FromQuery] double swlat,
+        [FromQuery] double swlng) {
+        string queryUrl = $"nelat={nelat}&nelng={nelng}&swlat={swlat}&swlng={swlng}";
+        var result = await observationService.GetObservationListAsync(queryUrl);
+        return Ok(result);
+    }
 }

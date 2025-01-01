@@ -3,7 +3,7 @@
 //    using QuickType;
 //    var welcome = Welcome.FromJson(jsonString);
 
-using WildlifeReserve.ExternalApis.TestINaturalist.QuickType;
+using WildlifeReserve.ExternalApis.iNaturalist.Connector;
 
 namespace WildlifeReserve.ExternalApis.TestINaturalist.ObservationDto
 {
@@ -22,6 +22,6 @@ namespace WildlifeReserve.ExternalApis.TestINaturalist.ObservationDto
         public long PerPage { get; set; }
 
         [JsonProperty("results")]
-        public Result[] Results { get; set; }
+        public ResultDto[] Results { get; set; }
     }
 }

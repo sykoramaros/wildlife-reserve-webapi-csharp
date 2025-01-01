@@ -1,6 +1,5 @@
 #nullable disable
 using Newtonsoft.Json;
-using WildlifeReserve.ExternalApis.TestINaturalist.QuickType;
 
 namespace WildlifeReserve.ExternalApis.TestINaturalist.ObservationDto;
 
@@ -16,7 +15,7 @@ public partial class ResultDto
     public bool Captive { get; set; }
 
     [JsonProperty("comments")]
-    public Comment[] Comments { get; set; }
+    public CommentDto[] Comments { get; set; }
 
     [JsonProperty("comments_count")]
     public long CommentsCount { get; set; }
@@ -25,7 +24,7 @@ public partial class ResultDto
     public DateTimeOffset? CreatedAt { get; set; }
 
     [JsonProperty("created_at_details")]
-    public Details CreatedAtDetails { get; set; }
+    public DateDto CreatedAtDetails { get; set; }
 
     [JsonProperty("created_time_zone")]
     public string CreatedTimeZone { get; set; }
@@ -37,7 +36,7 @@ public partial class ResultDto
     public long FavesCount { get; set; }
 
     [JsonProperty("geojson")]
-    public Geojson Geojson { get; set; }
+    public LocationDto Geojson { get; set; }
 
     [JsonProperty("geoprivacy")]
     public string Geoprivacy { get; set; }
@@ -70,7 +69,7 @@ public partial class ResultDto
     public bool Mappable { get; set; }
 
     [JsonProperty("non_owner_ids")]
-    public Comment[] NonOwnerIds { get; set; }
+    public CommentDto[] NonOwnerIds { get; set; }
 
     [JsonProperty("num_identification_agreements")]
     public long NumIdentificationAgreements { get; set; }
@@ -85,7 +84,7 @@ public partial class ResultDto
     public DateTimeOffset? ObservedOn { get; set; }
 
     [JsonProperty("observed_on_details")]
-    public Details ObservedOnDetails { get; set; }
+    public DateDto ObservedOnDetails { get; set; }
 
     [JsonProperty("observed_on_string")]
     public string ObservedOnString { get; set; }
@@ -94,13 +93,13 @@ public partial class ResultDto
     public string ObservedTimeZone { get; set; }
 
     [JsonProperty("ofvs")]
-    public Ofv[] Ofvs { get; set; }
+    public ObservationFieldValuesDto[] Ofvs { get; set; }
 
     [JsonProperty("out_of_range")]
     public bool OutOfRange { get; set; }
 
     [JsonProperty("photos")]
-    public Photo[] Photos { get; set; }
+    public PhotoDto[] Photos { get; set; }
 
     [JsonProperty("place_guess")]
     public string PlaceGuess { get; set; }
@@ -127,7 +126,7 @@ public partial class ResultDto
     public long SiteId { get; set; }
 
     [JsonProperty("sounds")]
-    public Photo[] Sounds { get; set; }
+    public PhotoDto[] Sounds { get; set; }
 
     [JsonProperty("species_guess")]
     public string SpeciesGuess { get; set; }
@@ -136,7 +135,7 @@ public partial class ResultDto
     public string[] Tags { get; set; }
 
     [JsonProperty("taxon")]
-    public Taxon Taxon { get; set; }
+    public TaxonDto Taxon { get; set; }
 
     [JsonProperty("time_observed_at")]
     public DateTimeOffset? TimeObservedAt { get; set; }
@@ -151,7 +150,7 @@ public partial class ResultDto
     public string Uri { get; set; }
 
     [JsonProperty("user")]
-    public User User { get; set; }
+    public ApiUserDto ApiUser { get; set; }
 
     [JsonProperty("verifiable")]
     public bool Verifiable { get; set; }

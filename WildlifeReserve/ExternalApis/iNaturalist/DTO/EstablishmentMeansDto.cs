@@ -1,7 +1,5 @@
-#nullable disable
-using Newtonsoft.Json;
-using WildlifeReserve.ExternalApis.TestINaturalist.QuickType;
 
+using Newtonsoft.Json;
 namespace WildlifeReserve.ExternalApis.TestINaturalist.ObservationDto;
 
 public partial class EstablishmentMeansDto
@@ -10,5 +8,5 @@ public partial class EstablishmentMeansDto
     public string EstablishmentMeansEstablishmentMeans { get; set; }
 
     [JsonProperty("place")]
-    public Place Place { get; set; }
+    public PlaceDto Place { get; set; }
 }

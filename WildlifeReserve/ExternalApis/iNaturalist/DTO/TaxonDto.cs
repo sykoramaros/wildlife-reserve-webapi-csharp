@@ -1,6 +1,5 @@
 #nullable disable
 using Newtonsoft.Json;
-using WildlifeReserve.ExternalApis.TestINaturalist.QuickType;
 
 namespace WildlifeReserve.ExternalApis.TestINaturalist.ObservationDto;
 
@@ -37,13 +36,13 @@ public partial class TaxonDto
     public string Ancestry { get; set; }
 
     [JsonProperty("conservation_status")]
-    public ConservationStatus ConservationStatus { get; set; }
+    public ConservationStatusDto ConservationStatus { get; set; }
 
     [JsonProperty("endemic")]
     public bool Endemic { get; set; }
 
     [JsonProperty("establishment_means")]
-    public EstablishmentMeans EstablishmentMeans { get; set; }
+    public EstablishmentMeansDto EstablishmentMeans { get; set; }
 
     [JsonProperty("introduced")]
     public bool Introduced { get; set; }

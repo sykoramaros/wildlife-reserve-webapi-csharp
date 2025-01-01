@@ -39,7 +39,7 @@ public class UsersController : ControllerBase {
             // kontrola jestli uzivetel uz neexistuje
             var existingUser = await userManager.FindByEmailAsync(newUser.Email);
             if (existingUser != null) {
-                return BadRequest("User already exists"); // 400 BadRequest, pokud uživatel jiz existuje
+                return BadRequest("ApiUser already exists"); // 400 BadRequest, pokud uživatel jiz existuje
             }
 
             // vytvoreni noveho uzyvatele

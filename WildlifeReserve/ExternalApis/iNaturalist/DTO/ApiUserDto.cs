@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace WildlifeReserve.ExternalApis.TestINaturalist.ObservationDto;
 
-public partial class UserDto
+public partial class ApiUserDto
 {
     [JsonProperty("id")]
     public long Id { get; set; }
