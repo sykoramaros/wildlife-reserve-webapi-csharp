@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using WildlifeReserve.ExternalApis.iNaturalist.Services;
 using WildlifeReserve.ExternalApis.TestINaturalist.ObservationDto;
 using Swashbuckle.AspNetCore.Annotations;
+using WildlifeReserve.Enums;
+using WildlifeReserve.Services;
 
 namespace WildlifeReserve.ExternalApis.iNaturalist.Controllers;
 
@@ -110,8 +112,17 @@ public class ObservationController : ControllerBase {
         [FromQuery] int? day,
         [FromQuery] int? month,
         [FromQuery] int? year,
-        [FromQuery] bool? identified) {
+        [FromQuery] bool? identified,
+        [FromQuery] Place? place) {
         var queryParams = new List<string>();
+        
+        if (place.HasValue) {
+            var placeDetails = PlaceService.GetPlaceDetails(place.Value);
+            lat = placeDetails.Lat;
+            lng = placeDetails.Lng;
+            radius = placeDetails.Radius;
+        }
+        
         if (!string.IsNullOrWhiteSpace(taxonName)) {
             queryParams.Add($"taxon_name={taxonName}");
         }
@@ -160,7 +171,12 @@ public class ObservationController : ControllerBase {
             return BadRequest("At least one filter is required.");
         }
         string queryUrl = string.Join("&", queryParams);
-        var result = await observationService.GetObservationListAsync(queryUrl);
-        return Ok(result);
+
+        try {
+            var result = await observationService.GetObservationListAsync(queryUrl);
+            return Ok(result);
+        } catch (Exception exception) {
+            return StatusCode(500, "An error occurred while processing the request.");
+        }
     }
 }
