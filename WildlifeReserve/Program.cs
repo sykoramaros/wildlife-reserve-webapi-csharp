@@ -2,11 +2,22 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using WildlifeReserve;
+using WildlifeReserve.ExternalApis.iNaturalist.Connector;
+using WildlifeReserve.ExternalApis.iNaturalist.Services;
 using WildlifeReserve.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers(); // Pouze pro Web API, bez zobrazení (views).
+
+// Nastavení HttpClientu pro získání pozorování.
+builder.Services.AddHttpClient<iNaturalistApiConnector>();
+
+// builder.Services.AddHttpClient<JsonController>();
+
+// Nastavení servisu pro získání seznamu pozorování.
+builder.Services.AddScoped<ObservationService>();
+
 
 // Nastavení DbContext pro připojení k databázi pomocí SQL Serveru.
 //propojena lokalni databaze MAMP MySql (pro spravne fungovani musi MAMP bezet)

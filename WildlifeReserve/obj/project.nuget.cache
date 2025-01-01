@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ktTeuAXmeM8=",
+  "dgSpecHash": "SVtPIo0hyvY=",
   "success": true,
   "projectFilePath": "/Users/marosh/RiderProjects/C#/vlastni/WildlifeReserve/WildlifeReserve/WildlifeReserve.csproj",
   "expectedPackageFiles": [
@@ -53,6 +53,7 @@
     "/Users/marosh/.nuget/packages/mono.texttemplating/2.2.1/mono.texttemplating.2.2.1.nupkg.sha512",
     "/Users/marosh/.nuget/packages/mysqlconnector/2.3.5/mysqlconnector.2.3.5.nupkg.sha512",
     "/Users/marosh/.nuget/packages/netstandard.library/1.6.1/netstandard.library.1.6.1.nupkg.sha512",
+    "/Users/marosh/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512",
     "/Users/marosh/.nuget/packages/pomelo.entityframeworkcore.mysql/8.0.2/pomelo.entityframeworkcore.mysql.8.0.2.nupkg.sha512",
     "/Users/marosh/.nuget/packages/pomelo.entityframeworkcore.mysql.design/1.1.2/pomelo.entityframeworkcore.mysql.design.1.1.2.nupkg.sha512",
     "/Users/marosh/.nuget/packages/runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
