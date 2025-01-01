@@ -8,7 +8,7 @@ namespace WildlifeReserve.ExternalApis.iNaturalist.Connector
         private string baseUrl; // Ukládá základní URL pro API požadavky
         
         // Konstruktor
-        public iNaturalistApiConnector(HttpClient httpClient, string baseUrl = "https://api.inaturalist.org/v1/observations?place_guess=Prague") {
+        public iNaturalistApiConnector(HttpClient httpClient, string baseUrl = "https://api.inaturalist.org/v1/observations") {
             this.httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
             this.baseUrl = baseUrl;
         }
@@ -18,15 +18,17 @@ namespace WildlifeReserve.ExternalApis.iNaturalist.Connector
         }
 
         // FetchJson metoda pro načítání JSON dat z API
-        public async Task<string> FetchJson() {
-            var response = await httpClient.GetStringAsync("https://api.inaturalist.org/v1/observations?place_guess=Prague");
+        // Metoda FetchJson umožňuje přidat dotazovací parametry (queryUrl) k základní URL (baseUrl). Pokud žádné parametry nejsou předány, použije pouze baseUrl.
+        public async Task<string> FetchJson(string queryUrl = "") {
+            string fullUrl = string.IsNullOrWhiteSpace(queryUrl) ? baseUrl : baseUrl + "?" + queryUrl;
+            var response = await httpClient.GetStringAsync(fullUrl);
             return response;
         }
 
         // Asynchronní metoda pro získání seznamu pozorování
-        public async Task<ObservationListDto> FetchObservationListAsync() {
+        public async Task<ObservationListDto> FetchObservationListAsync(string queryUrl = "") {
             // Nacte JSON data z API
-            string jsonData = await FetchJson();
+            string jsonData = await FetchJson(queryUrl);
             // Vrací získaný JSON jako odpověď
             return ObservationListDeserializer.FromJson(jsonData);
 

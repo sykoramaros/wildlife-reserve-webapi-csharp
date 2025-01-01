@@ -10,7 +10,7 @@ public class ObservationService {
         this.apiConnector = apiConnector;
     }
 
-    public async Task<ObservationListDto> GetObservationListAsync() {
+    public async Task<ObservationListDto> GetObservationListAsync(string queryUrl = "") {
         string jsonData = await apiConnector.FetchJson();
 
         ObservationListDto observationList = ObservationListDeserializer.FromJson(jsonData);

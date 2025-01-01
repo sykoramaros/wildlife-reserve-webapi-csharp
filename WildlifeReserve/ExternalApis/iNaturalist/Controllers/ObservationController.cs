@@ -18,4 +18,18 @@ public class ObservationController : ControllerBase {
         var observations = await observationService.GetObservationListAsync();
         return Ok(observations);
     }
+
+    // https://api.inaturalist.org/v1/observations?place_guess={placeName}
+    // vraci ale vsechna pozorovani celkem
+    [HttpGet("byPlace")]
+    public async Task<ActionResult<ObservationListDto>> GetObservationsByPlaceName([FromQuery] string placeName) {
+        if (string.IsNullOrWhiteSpace(placeName)) {
+            return BadRequest("Place name is required.");
+        }
+        string queryUrl = $"place_guess={placeName}";
+        var result = await observationService.GetObservationListAsync(queryUrl);
+        return Ok(result);
+    }
+    
+    
 }
