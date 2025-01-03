@@ -124,7 +124,7 @@ public class ObservationController : ControllerBase {
         }
         
         if (!string.IsNullOrWhiteSpace(taxonName)) {
-            queryParams.Add($"taxon_name={taxonName}");
+            queryParams.Add($"taxon_name={Uri.EscapeDataString(taxonName.ToLower())}*");
         }
         if (nelat.HasValue && nelng.HasValue && swlat.HasValue && swlng.HasValue) {
             queryParams.Add($"nelat={nelat}&nelng={nelng}&swlat={swlat}&swlng={swlng}");

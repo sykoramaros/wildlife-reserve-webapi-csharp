@@ -6,7 +6,7 @@ namespace WildlifeReserve.ExternalApis.TestINaturalist.ObservationDto;
 public partial class ConservationStatusDto
 {
     [JsonProperty("source_id")]
-    public long SourceId { get; set; }
+    public long? SourceId { get; set; }
 
     [JsonProperty("authority")]
     public string Authority { get; set; }

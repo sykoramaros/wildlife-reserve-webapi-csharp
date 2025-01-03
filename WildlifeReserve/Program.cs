@@ -6,6 +6,7 @@ using WildlifeReserve.ExternalApis.iNaturalist.Connector;
 using WildlifeReserve.ExternalApis.iNaturalist.Services;
 using WildlifeReserve.Models;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers(); // Pouze pro Web API, bez zobrazení (views).
@@ -59,6 +60,24 @@ builder.Services.AddSwaggerGen(options => {
     options.EnableAnnotations();
 });
 
+// Pridani CORS pro vsechny zdroje
+builder.Services.AddCors(options => {
+    options.AddPolicy("AllowAnyOrigin", corsBuilder => {
+        corsBuilder.AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
+// Pridani CORS jen pro localhost:3000
+// builder.Services.AddCors(options => {
+//     options.AddPolicy("AllowLocalhost", corsBuilder => {
+//         corsBuilder.WithOrigins("http://localhost:3000")
+//             .AllowAnyHeader()
+//             .AllowAnyMethod();
+//     });
+// });
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline. Konfigurace HTTP pipeline pozadavku.
@@ -70,6 +89,11 @@ if (app.Environment.IsDevelopment()) {
 }
 
 app.UseHttpsRedirection();  // Přesměrování na HTTPS pro zajištění bezpečného připojení.
+
+// Aktivace CORS
+app.UseCors("AllowAnyOrigin");
+// app.UseCors("AllowLocalhost");
+
 app.UseRouting();   // Umožňuje použití routování pro mapování požadavků HTTP na specifické akce kontrolérů.
 app.UseAuthentication();    // Aktivuje autentizaci pro ověření uživatele 
 app.MapControllers();     // Mapuje kontrolery na URL adresy.
