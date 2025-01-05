@@ -22,8 +22,16 @@ builder.Services.AddScoped<ObservationService>();
 
 // Nastavení DbContext pro připojení k databázi pomocí SQL Serveru.
 //propojena lokalni databaze MAMP MySql (pro spravne fungovani musi MAMP bezet)
+// LOKALNI MAMP MySql DB
+// builder.Services.AddDbContext<ApplicationDbContext>(options => {
+//     options.UseMySql(builder.Configuration.GetConnectionString("DBConnection"),new MySqlServerVersion(new Version(10,6, 28)));
+// });
+
+// EXTERNI ASP.NET Mariadb
 builder.Services.AddDbContext<ApplicationDbContext>(options => {
-    options.UseMySql(builder.Configuration.GetConnectionString("DBConnection"),new MySqlServerVersion(new Version(10,6, 28)));
+    options.UseMySql(builder.Configuration.GetConnectionString("MonsterAspDbConnection"),
+    ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("MonsterAspDbConnection"))
+    );
 });
 
 // Nastavení Identity (pro autentizaci a autorizaci).
