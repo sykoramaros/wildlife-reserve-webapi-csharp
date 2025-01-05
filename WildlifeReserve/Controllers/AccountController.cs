@@ -8,6 +8,7 @@ namespace WildlifeReserve.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+// [Authorize]
 public class AccountController : ControllerBase {
     private UserManager<AppUser> userManager;
     private SignInManager<AppUser> signInManager;

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -6,6 +7,7 @@ using WildlifeReserve.Models;
 namespace WildlifeReserve.Controllers;
 [Route("api/[controller]")]
 [ApiController]
+// [Authorize (Roles = "Admin, Director")]
 public class RolesController : ControllerBase {
     private RoleManager<IdentityRole> roleManager;
     private UserManager<AppUser> userManager;

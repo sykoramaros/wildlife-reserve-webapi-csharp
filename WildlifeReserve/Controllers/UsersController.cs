@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using WildlifeReserve.DTO;
@@ -8,6 +9,7 @@ namespace WildlifeReserve.Controllers;
 // ControllerBase je pro backend Web API a nepracuje s Views narozdil od Controller.
 [Route("api/[controller]")]
 [ApiController]
+// [Authorize (Roles = "Admin, Director")]
 public class UsersController : ControllerBase {
     private UserManager<AppUser> userManager;
     private IPasswordHasher<AppUser> passwordHasher;
