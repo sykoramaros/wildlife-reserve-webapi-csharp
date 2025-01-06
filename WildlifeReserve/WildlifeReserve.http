@@ -1,6 +1,3 @@
 @WildlifeReserve_HostAddress = http://localhost:5272
 
-GET {{WildlifeReserve_HostAddress}}/weatherforecast/
-Accept: application/json
-
 ###
