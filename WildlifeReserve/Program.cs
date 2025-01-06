@@ -79,9 +79,19 @@ builder.Services.AddSwaggerGen(options => {
 // });
 
 // Pridani CORS jen pro localhost:3000
+// builder.Services.AddCors(options => {
+//     options.AddPolicy("AllowLocalhost", corsBuilder => {
+//         corsBuilder.WithOrigins("http://localhost:3000")
+//             .AllowAnyHeader()
+//             .AllowAnyMethod()
+//             .AllowCredentials();
+//     });
+// });
+
+// Pridani CORS jen pro localhost:3000
 builder.Services.AddCors(options => {
-    options.AddPolicy("AllowLocalhost", corsBuilder => {
-        corsBuilder.WithOrigins("http://localhost:3000")
+    options.AddPolicy("AllowFrontend", corsBuilder => {
+        corsBuilder.WithOrigins("https://wildlifereserve.unaux.com")
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowCredentials();
@@ -93,7 +103,7 @@ var app = builder.Build();
 // Configure the HTTP request pipeline. Konfigurace HTTP pipeline pozadavku.
 if (app.Environment.IsDevelopment()) {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WildlifeReserve API v1"));
     app.UseHsts();
     app.UseDeveloperExceptionPage();
 }
@@ -102,7 +112,8 @@ app.UseHttpsRedirection();  // Přesměrování na HTTPS pro zajištění bezpe�
 
 // Aktivace CORS
 // app.UseCors("AllowAnyOrigin");
-app.UseCors("AllowLocalhost");
+// app.UseCors("AllowLocalhost");   // pro lokalni vyvoj
+app.UseCors("AllowFrontend");   // pro produkci
 
 app.UseRouting();   // Umožňuje použití routování pro mapování požadavků HTTP na specifické akce kontrolérů.
 app.UseAuthentication();    // Aktivuje autentizaci pro ověření uživatele 
