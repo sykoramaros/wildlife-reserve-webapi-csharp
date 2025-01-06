@@ -18,7 +18,8 @@
           "Pomelo.EntityFrameworkCore.MySql": "8.0.2",
           "Pomelo.EntityFrameworkCore.MySql.Design": "1.1.2",
           "Swashbuckle.AspNetCore": "7.2.0",
-          "Swashbuckle.AspNetCore.Annotations": "7.2.0"
+          "Swashbuckle.AspNetCore.Annotations": "7.2.0",
+          "System.Linq": "4.3.0"
         },
         "runtime": {
           "WildlifeReserve.dll": {}

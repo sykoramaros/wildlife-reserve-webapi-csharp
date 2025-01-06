@@ -7845,7 +7845,8 @@
       "Pomelo.EntityFrameworkCore.MySql >= 8.0.2",
       "Pomelo.EntityFrameworkCore.MySql.Design >= 1.1.2",
       "Swashbuckle.AspNetCore >= 7.2.0",
-      "Swashbuckle.AspNetCore.Annotations >= 7.2.0"
+      "Swashbuckle.AspNetCore.Annotations >= 7.2.0",
+      "System.Linq >= 4.3.0"
     ]
   },
   "packageFolders": {
@@ -7938,6 +7939,10 @@
           "Swashbuckle.AspNetCore.Annotations": {
             "target": "Package",
             "version": "[7.2.0, )"
+          },
+          "System.Linq": {
+            "target": "Package",
+            "version": "[4.3.0, )"
           }
         },
         "imports": [
