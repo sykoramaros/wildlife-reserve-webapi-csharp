@@ -123,7 +123,7 @@ public partial class ResultDto
     public long[] ReviewedBy { get; set; }
 
     [JsonProperty("site_id")]
-    public long SiteId { get; set; }
+    public long? SiteId { get; set; }
 
     [JsonProperty("sounds")]
     public PhotoDto[] Sounds { get; set; }

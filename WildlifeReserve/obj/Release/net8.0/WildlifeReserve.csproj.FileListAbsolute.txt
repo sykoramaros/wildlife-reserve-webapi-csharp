@@ -129,3 +129,6 @@
 /Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/obj/Release/net8.0/WildlifeReserve.pdb
 /Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/obj/Release/net8.0/WildlifeReserve.genruntimeconfig.cache
 /Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/obj/Release/net8.0/ref/WildlifeReserve.dll
+/Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/bin/Release/net8.0/WildlifeReserve.staticwebassets.endpoints.json
+/Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/obj/Release/net8.0/staticwebassets.build.endpoints.json
+/Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/obj/Release/net8.0/staticwebassets/msbuild.WildlifeReserve.Microsoft.AspNetCore.StaticWebAssetEndpoints.props

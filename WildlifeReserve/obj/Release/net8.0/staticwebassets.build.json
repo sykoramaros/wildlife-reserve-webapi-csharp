@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "YvPaMKsrra7GNl8ZCLW5p4DpmMLacm8k/hznji09mEo=",
+  "Hash": "lnuSN9394Qvf9jioIGsodiN4BZC6JLS9zu8j7PvmXQw=",
   "Source": "WildlifeReserve",
   "BasePath": "_content/WildlifeReserve",
   "Mode": "Default",
@@ -23,6 +23,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
+      "Fingerprint": "25o87uqmvr",
+      "Integrity": "Nuu0BHvGBlwN6c5FSVjV9yxX0YPfwg3ufdOucRJCOz0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/marosh/.nuget/packages/microsoft.aspnetcore.components.quickgrid/8.0.11/staticwebassets/Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css"
@@ -42,6 +44,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "eu7w3d5g1a",
+      "Integrity": "tnamWuQ2F5I2J8hbtBt4/9i8Mb2y2o+9Tepj5tUrSdU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/marosh/.nuget/packages/microsoft.aspnetcore.components.quickgrid/8.0.11/staticwebassets/QuickGrid.razor.js"
@@ -52,7 +56,7 @@
       "SourceType": "Computed",
       "ContentRoot": "/Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/obj/Release/net8.0/scopedcss/bundle/",
       "BasePath": "_content/WildlifeReserve",
-      "RelativePath": "WildlifeReserve.styles.css",
+      "RelativePath": "WildlifeReserve#[.{fingerprint}]?.styles.css",
       "AssetKind": "All",
       "AssetMode": "CurrentProject",
       "AssetRole": "Primary",
@@ -61,9 +65,177 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
+      "Fingerprint": "qi6jcudgdy",
+      "Integrity": "wjvNY7lSgAwWpLNuAeXXConx0FH4ntCLUPgfFfK1R2I=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/obj/Release/net8.0/scopedcss/bundle/WildlifeReserve.styles.css"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "_content/Microsoft.AspNetCore.Components.QuickGrid/Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
+      "AssetFile": "/Users/marosh/.nuget/packages/microsoft.aspnetcore.components.quickgrid/8.0.11/staticwebassets/Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8251"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Nuu0BHvGBlwN6c5FSVjV9yxX0YPfwg3ufdOucRJCOz0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 21 Oct 2024 23:57:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Nuu0BHvGBlwN6c5FSVjV9yxX0YPfwg3ufdOucRJCOz0="
+        }
+      ]
+    },
+    {
+      "Route": "_content/Microsoft.AspNetCore.Components.QuickGrid/QuickGrid.razor.js",
+      "AssetFile": "/Users/marosh/.nuget/packages/microsoft.aspnetcore.components.quickgrid/8.0.11/staticwebassets/QuickGrid.razor.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2563"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tnamWuQ2F5I2J8hbtBt4/9i8Mb2y2o+9Tepj5tUrSdU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 21 Oct 2024 23:38:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-tnamWuQ2F5I2J8hbtBt4/9i8Mb2y2o+9Tepj5tUrSdU="
+        }
+      ]
+    },
+    {
+      "Route": "WildlifeReserve.qi6jcudgdy.styles.css",
+      "AssetFile": "/Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/obj/Release/net8.0/scopedcss/bundle/WildlifeReserve.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "120"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wjvNY7lSgAwWpLNuAeXXConx0FH4ntCLUPgfFfK1R2I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 06 Jan 2025 02:09:19 GMT"
+        },
+        {
+          "Name": "Link",
+          "Value": "<_content/Microsoft.AspNetCore.Components.QuickGrid/Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css>; rel=\"preload\"; as=\"style\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "qi6jcudgdy"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-wjvNY7lSgAwWpLNuAeXXConx0FH4ntCLUPgfFfK1R2I="
+        },
+        {
+          "Name": "label",
+          "Value": "WildlifeReserve.styles.css"
+        }
+      ]
+    },
+    {
+      "Route": "WildlifeReserve.styles.css",
+      "AssetFile": "/Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/obj/Release/net8.0/scopedcss/bundle/WildlifeReserve.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "120"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wjvNY7lSgAwWpLNuAeXXConx0FH4ntCLUPgfFfK1R2I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 06 Jan 2025 02:09:19 GMT"
+        },
+        {
+          "Name": "Link",
+          "Value": "<_content/Microsoft.AspNetCore.Components.QuickGrid/Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css>; rel=\"preload\"; as=\"style\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-wjvNY7lSgAwWpLNuAeXXConx0FH4ntCLUPgfFfK1R2I="
+        }
+      ]
     }
   ]
 }

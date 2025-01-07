@@ -6,7 +6,6 @@ using WildlifeReserve.ExternalApis.iNaturalist.Connector;
 using WildlifeReserve.ExternalApis.iNaturalist.Services;
 using WildlifeReserve.Models;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers(); // Pouze pro Web API, bez zobrazení (views).
@@ -18,7 +17,6 @@ builder.Services.AddHttpClient<iNaturalistApiConnector>();
 
 // Nastavení servisu pro získání seznamu pozorování.
 builder.Services.AddScoped<ObservationService>();
-
 
 // Nastavení DbContext pro připojení k databázi pomocí SQL Serveru.
 //propojena lokalni databaze MAMP MySql (pro spravne fungovani musi MAMP bezet)
@@ -68,7 +66,7 @@ builder.Services.AddSwaggerGen(options => {
     options.EnableAnnotations();
 });
 
-// // Pridani CORS pro vsechny zdroje
+// Pridani CORS pro vsechny zdroje
 // builder.Services.AddCors(options => {
 //     options.AddPolicy("AllowAnyOrigin", corsBuilder => {
 //         corsBuilder.AllowAnyOrigin()
@@ -88,14 +86,38 @@ builder.Services.AddSwaggerGen(options => {
 //     });
 // });
 
-// Pridani CORS jen pro localhost:3000
-builder.Services.AddCors(options => {
-    options.AddPolicy("AllowFrontend", corsBuilder => {
-        corsBuilder.WithOrigins("https://wildlifereserve.unaux.com")
-            .AllowAnyHeader()
-            .AllowAnyMethod()
-            .AllowCredentials();
-    });
+// Pridani CORS jen pro externi frontend
+// builder.Services.AddCors(options => {
+//     options.AddPolicy("AllowFrontend", corsBuilder => {
+//         corsBuilder.WithOrigins("http://wildlifereserve.unaux.com")
+//             .AllowAnyHeader()
+//             .AllowAnyMethod()
+//             .AllowCredentials();
+//     });
+// });
+
+// builder.Services.AddCors(options => {
+//     options.AddPolicy("AllowSpecificOrigins", corsBuilder => {
+//         corsBuilder.WithOrigins(
+//                 "http://localhost:3000", // Lokální frontend
+//                 "http://wildlifereserve.unaux.com" // Externí frontend
+//             )
+//             .AllowAnyHeader()
+//             .AllowAnyMethod()
+//             .AllowCredentials();
+//     });
+// });
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:3000", "https://wildlife-reserve.runasp.net", "http://www.wildlifereserve.unaux.com")
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                .AllowCredentials();
+        });
 });
 
 var app = builder.Build();
@@ -114,12 +136,12 @@ app.UseHttpsRedirection();  // Přesměrování na HTTPS pro zajištění bezpe�
 // app.UseCors("AllowAnyOrigin");
 // app.UseCors("AllowLocalhost");   // pro lokalni vyvoj
 app.UseCors("AllowFrontend");   // pro produkci
+// app.UseCors("AllowSpecificOrigins");
 
 app.UseRouting();   // Umožňuje použití routování pro mapování požadavků HTTP na specifické akce kontrolérů.
 app.UseAuthentication();    // Aktivuje autentizaci pro ověření uživatele 
 app.UseAuthorization();     // Aktivuje autentizaci pro ověření uživatele
 app.MapControllers();     // Mapuje kontrolery na URL adresy. Pro Web api neni nutne dovnitr metody neco pridavat
-
 
 app.Run();  // Spustí aplikaci a zacne zpracovavat HTTP pozadavky
 

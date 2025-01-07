@@ -43,7 +43,6 @@ public class UsersController : ControllerBase {
             if (existingUser != null) {
                 return BadRequest("ApiUser already exists"); // 400 BadRequest, pokud uživatel jiz existuje
             }
-
             // vytvoreni noveho uzyvatele
             AppUser appUser = new AppUser {
                 UserName = newUser.Name,
@@ -75,6 +74,7 @@ public class UsersController : ControllerBase {
             return BadRequest(result.Errors);   // 400 BadRequest
         }
     }
+    
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteUser(string id) {
         var userToDelete = await userManager.FindByIdAsync(id);
