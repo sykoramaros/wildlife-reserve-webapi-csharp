@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WildlifeReserve.DTO;
 using WildlifeReserve.Models;
 
@@ -21,13 +22,24 @@ public class UsersController : ControllerBase {
         this.passwordHasher = passwordHasher; // ulozeni passwordHasher hashovani hesel
         this.passwordValidator = passwordValidator; // ulozeni passwordValidator pro kontrolu hesla
     }
-    [HttpGet]
-    public IActionResult GetUsers() {
-        return Ok(userManager.Users);   // Vrátí 200 OK s seznamem uživatelů
+    [HttpGet("list")]
+    public async Task<IActionResult> GetUsers() {
+        var users = await userManager.Users.ToListAsync();
+        return Ok(users);   // Vrátí 200 OK s seznamem uživatelů
     }
 
-    [HttpGet("{id}")]
-    public async Task<IActionResult> GetUser(string id) {
+    [HttpGet("getBy/{email}")]
+    public async Task<IActionResult> GetUserByEmail(string email) {
+        var user = await userManager.Users.FirstOrDefaultAsync(u => u.Email == email);
+        if (user == null) {
+            return NotFound(); // 404 NotFound, pokud neexistuje uživatel s danou id
+        } else {
+            return Ok(user);
+        }
+    }
+    
+    [HttpPost("getBy/{id}")]
+    public async Task<IActionResult> GetUserById(string id) {
         var user = await userManager.FindByIdAsync(id);
         if (user == null) {
             return NotFound(); // 404 NotFound, pokud neexistuje uživatel s danou id
@@ -35,7 +47,7 @@ public class UsersController : ControllerBase {
         return Ok(user); // Vrátí 200 OK s daty uživatele
     }
 
-    [HttpPost]
+    [HttpPost("add")]
     public async Task<IActionResult> CreateUser([FromBody] UserDto newUser) {
         if (ModelState.IsValid) {
             // kontrola jestli uzivetel uz neexistuje
@@ -50,7 +62,7 @@ public class UsersController : ControllerBase {
             };
             IdentityResult result = await userManager.CreateAsync(appUser, newUser.Password);
             if (result.Succeeded) {
-                return CreatedAtAction(nameof(GetUser),
+                return CreatedAtAction(nameof(GetUserById),
                     new { id = appUser.Id }, appUser); // Vrátí 201 s URL k novemu uživateli
             } else {
                 return BadRequest(result.Errors); // 400 BadRequest, pokud došlo k chybám při vytváření uživatele
@@ -59,7 +71,7 @@ public class UsersController : ControllerBase {
         return BadRequest(ModelState);  // 400 BadRequest, pokud model neni validni
     }
 
-    [HttpPut("{id}")]
+    [HttpPut("edit/{id}")]
     public async Task<IActionResult> EditUser(string id, [FromBody] UserDto editedUser) {
         var userToEdit = await userManager.FindByIdAsync(id);
         if (userToEdit == null) {
@@ -75,7 +87,7 @@ public class UsersController : ControllerBase {
         }
     }
     
-    [HttpDelete("{id}")]
+    [HttpDelete("delete/{id}")]
     public async Task<IActionResult> DeleteUser(string id) {
         var userToDelete = await userManager.FindByIdAsync(id);
         if (userToDelete == null) {

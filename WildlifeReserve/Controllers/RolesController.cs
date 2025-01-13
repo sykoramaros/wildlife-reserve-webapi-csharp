@@ -19,14 +19,14 @@ public class RolesController : ControllerBase {
     }
     
     // Získání seznamu všech rolí
-    [HttpGet]
+    [HttpGet("list")]
     public async Task<IActionResult> GetRoles() {
         var roles = await roleManager.Roles.ToListAsync();
         return Ok(roles);
     }
     
     // Vytvoření nové role
-    [HttpPost]
+    [HttpPost("add")]
     public async Task<IActionResult> CreateRole(string roleName) {
         // kontrola jestli role uz neexistuje
         var existingRole = await roleManager.FindByNameAsync(roleName); 
@@ -41,33 +41,64 @@ public class RolesController : ControllerBase {
     }
     
     // Úprava role (získání členů a nečlenů)
-    [HttpPut("{id}")]
-    public async Task<IActionResult> EditRole(string id) {
+    [HttpGet("getBy/{id}")]
+    public async Task<IActionResult>EditRole(string id) {
         IdentityRole roleToEdit = await roleManager.FindByIdAsync(id);
-        if (roleToEdit == null) {
-            return NotFound(new {message = "Role not found"});
-        }
         List<AppUser> members = new List<AppUser>();
         List<AppUser> nonMembers = new List<AppUser>();
-        var userTasks = userManager.Users.Select(user => userManager.IsInRoleAsync(user, roleToEdit.Name));
-        var roleChecks = await Task.WhenAll(userTasks);
-        var users = await userManager.Users.ToListAsync();
-        for (int i = 0; i < users.Count; i++) {
-            if (roleChecks[i]) {
-                members.Add(users[i]);
-            } else {
-                nonMembers.Add(users[i]);
+    
+        if (roleToEdit != null) {
+            foreach (AppUser user in userManager.Users) {
+                bool isInRole = await userManager.IsInRoleAsync(user, roleToEdit.Name);
+                var list = isInRole ? members : nonMembers;
+                list.Add(user);
+            }
+        
+            return Ok(new RoleUsersViewModel {
+                Role = roleToEdit,
+                Members = members,
+                NonMembers = nonMembers
+            });
+        } else {
+            return NotFound();
+        }
+    }
+
+    [HttpPut("modifications")]
+    public async Task<IActionResult> EditModificationAsync(UserRoleModifications modification) {
+        foreach (string userId in modification.AddIds ?? Array.Empty<string>()) {
+            AppUser user = await userManager.FindByIdAsync(userId);
+            if (user != null) {
+                IdentityResult result = await userManager.AddToRoleAsync(user, modification.RoleName);
+                if (!result.Succeeded) {
+                    AddModelErrors(result);
+                }
             }
         }
-        return Ok(new {
-            Role = roleToEdit, 
-            Members = members, 
-            NonMembers = nonMembers
-        });
+
+        foreach (string userId in modification.DeleteIds ?? Array.Empty<string>()) {
+            AppUser user = await userManager.FindByIdAsync(userId);
+            if (user != null) {
+                IdentityResult result = await userManager.RemoveFromRoleAsync(user, modification.RoleName);
+                if (!result.Succeeded) {
+                    AddModelErrors(result);
+                }
+            }
+        }
+        if (!ModelState.IsValid) {
+            return BadRequest(ModelState);
+        }
+        return Ok();
+    }
+    // Metoda pro přidání chyb IdentityResult do ModelState.
+    private void AddModelErrors(IdentityResult result) {
+        foreach (var error in result.Errors) {
+            ModelState.AddModelError(string.Empty, error.Description); // Přidá chyby do ModelState.
+        }
     }
     
     // Smazání role
-    [HttpDelete("{id}")]
+    [HttpDelete("delete/{id}")]
     public async Task<IActionResult> DeleteRole(string id) {
         IdentityRole foundRole = await roleManager.FindByIdAsync(id);
         if (foundRole != null) {
