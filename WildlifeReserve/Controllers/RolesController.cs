@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore;
 using WildlifeReserve.Models;
 
 namespace WildlifeReserve.Controllers;
+[Authorize (Roles = "Admin, Director")]
 [Route("api/[controller]")]
 [ApiController]
-// [Authorize (Roles = "Admin, Director")]
 public class RolesController : ControllerBase {
     private RoleManager<IdentityRole> roleManager;
     private UserManager<AppUser> userManager;

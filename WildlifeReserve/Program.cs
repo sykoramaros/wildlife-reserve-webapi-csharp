@@ -56,7 +56,10 @@ builder.Services.ConfigureApplicationCookie(options => {
     options.Cookie.Name = "AspNetCore.Identity.Application"; // Nastavuje nazev cookie pro autentizaci
     options.ExpireTimeSpan = TimeSpan.FromMinutes(10);  // Cookie bude platit 10 minut
     options.SlidingExpiration = true;   // Umožňuje obnovu platnosti cookie při každém požadavku (tzn. prodlužuje čas do vypršení, když uživatel aktivně používá aplikaci).
-}); 
+    options.AccessDeniedPath = "/forbidden";  // Pokud uživatel nema licence pro aplikaci, bude odesláno na adresu /forbidden
+    options.LoginPath = "/login";   // Pokud uživatel nejste prihlasen, bude odesláno na adresu /login
+    options.LogoutPath = "/logout"; // Pokud se uživatel odhlasi, bude odesláno na adresu /logout
+});
 
 // Nastavení Swaggeru.
 builder.Services.AddEndpointsApiExplorer();
@@ -99,9 +102,6 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction()) {
 app.UseHttpsRedirection();  // Přesměrování na HTTPS pro zajištění bezpečného připojení.
 
 // Aktivace CORS
-// app.UseCors("AllowAnyOrigin");
-// app.UseCors("AllowLocalhost");   // pro lokalni vyvoj
-
 app.UseCors("MyCorsPolicy");
 
 app.UseRouting();   // Umožňuje použití routování pro mapování požadavků HTTP na specifické akce kontrolérů.

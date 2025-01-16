@@ -6,9 +6,9 @@ using WildlifeReserve.Models;
 
 namespace WildlifeReserve.Controllers;
 
+[AllowAnonymous]
 [Route("api/[controller]")]
 [ApiController]
-// [Authorize]
 public class AccountController : ControllerBase {
     private UserManager<AppUser> userManager;
     private SignInManager<AppUser> signInManager;
@@ -36,7 +36,7 @@ public class AccountController : ControllerBase {
             if (appUser != null) {
                   Microsoft.AspNetCore.Identity.SignInResult signInResult = await signInManager.PasswordSignInAsync(appUser, loginDto.Password, isPersistent: false, lockoutOnFailure: false);
                   if (signInResult.Succeeded) {
-                      return Ok(new { message = "Login successful", returnUrl = string.IsNullOrEmpty(loginDto.ReturnUrl) ? "/" : loginDto.ReturnUrl});
+                      return Ok(new { message = "Login successful", returnUrl = loginDto.ReturnUrl ?? "/" });
                   } 
                   // Tento přístup zajistí, že pokud je ReturnUrl prázdný nebo null, bude použita hodnota "/" (což může být defaultní stránka nebo kořenová stránka aplikace).
             } 
@@ -47,11 +47,11 @@ public class AccountController : ControllerBase {
     [HttpPost("logout")]
     public async Task<IActionResult> Logout() {
         await signInManager.SignOutAsync();
-        return Ok(new { message = "Logout successful"});
+        return Ok(new { message = "Logout successful", returnUrl = "/login" });
     }
     
     [HttpGet("access-denied")]
     public IActionResult AccessDenied() {
-        return Unauthorized(new { message = "Access denied"});
+        return Unauthorized(new { message = "Access denied", returnUrl = "/forbidden" });
     }
 }
