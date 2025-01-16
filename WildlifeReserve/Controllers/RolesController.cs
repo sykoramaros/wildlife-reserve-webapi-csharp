@@ -42,29 +42,30 @@ public class RolesController : ControllerBase {
     
     // Úprava role (získání členů a nečlenů)
     [HttpGet("getBy/{id}")]
-    public async Task<IActionResult>EditRole(string id) {
-        IdentityRole roleToEdit = await roleManager.FindByIdAsync(id);
-        List<AppUser> members = new List<AppUser>();
-        List<AppUser> nonMembers = new List<AppUser>();
-    
-        if (roleToEdit != null) {
-            foreach (AppUser user in userManager.Users) {
-                bool isInRole = await userManager.IsInRoleAsync(user, roleToEdit.Name);
-                var list = isInRole ? members : nonMembers;
-                list.Add(user);
-            }
-        
-            return Ok(new RoleUsersViewModel {
-                Role = roleToEdit,
-                Members = members,
-                NonMembers = nonMembers
-            });
-        } else {
+    public async Task<IActionResult> GetRoleByUserId(string id) {
+        var roleToEdit = await roleManager.FindByIdAsync(id);
+        if (roleToEdit == null) {
             return NotFound();
         }
+        var users = await userManager.Users.AsNoTracking().ToListAsync();
+        var members = new List<AppUser>();
+        var nonMembers = new List<AppUser>();
+        foreach (var user in users) {
+            var isInRole = await userManager.IsInRoleAsync(user, roleToEdit.Name);
+            if (isInRole) {
+                members.Add(user);
+            } else {
+                nonMembers.Add(user);
+            }
+        }
+        return Ok(new RoleUsersViewModel {
+            Role = roleToEdit,
+            Members = members,
+            NonMembers = nonMembers
+        });
     }
 
-    [HttpPut("modifications")]
+    [HttpPut("modificationsEdit")]
     public async Task<IActionResult> EditModificationAsync(UserRoleModifications modification) {
         foreach (string userId in modification.AddIds ?? Array.Empty<string>()) {
             AppUser user = await userManager.FindByIdAsync(userId);
