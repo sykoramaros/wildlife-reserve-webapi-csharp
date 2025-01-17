@@ -4,6 +4,7 @@
 /Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/bin/Release/net8.0/publish/WildlifeReserve.dll
 /Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/bin/Release/net8.0/publish/WildlifeReserve.runtimeconfig.json
 /Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/bin/Release/net8.0/publish/WildlifeReserve.pdb
+/Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/bin/Release/net8.0/publish/Microsoft.AspNetCore.Authentication.JwtBearer.dll
 /Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/bin/Release/net8.0/publish/Microsoft.AspNetCore.Authorization.dll
 /Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/bin/Release/net8.0/publish/Microsoft.AspNetCore.Components.dll
 /Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/bin/Release/net8.0/publish/Microsoft.AspNetCore.Components.Forms.dll
@@ -28,6 +29,12 @@
 /Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/bin/Release/net8.0/publish/Microsoft.Extensions.Logging.dll
 /Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/bin/Release/net8.0/publish/Microsoft.Extensions.Logging.Abstractions.dll
 /Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/bin/Release/net8.0/publish/Microsoft.Extensions.Options.dll
+/Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/bin/Release/net8.0/publish/Microsoft.IdentityModel.Abstractions.dll
+/Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/bin/Release/net8.0/publish/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/bin/Release/net8.0/publish/Microsoft.IdentityModel.Logging.dll
+/Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/bin/Release/net8.0/publish/Microsoft.IdentityModel.Protocols.dll
+/Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/bin/Release/net8.0/publish/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/bin/Release/net8.0/publish/Microsoft.IdentityModel.Tokens.dll
 /Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/bin/Release/net8.0/publish/Microsoft.JSInterop.dll
 /Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/bin/Release/net8.0/publish/Microsoft.OpenApi.dll
 /Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/bin/Release/net8.0/publish/MySqlConnector.dll
@@ -38,4 +45,5 @@
 /Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/bin/Release/net8.0/publish/Swashbuckle.AspNetCore.Swagger.dll
 /Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/bin/Release/net8.0/publish/Swashbuckle.AspNetCore.SwaggerGen.dll
 /Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/bin/Release/net8.0/publish/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/bin/Release/net8.0/publish/System.IdentityModel.Tokens.Jwt.dll
 /Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/bin/Release/net8.0/publish/WildlifeReserve.deps.json

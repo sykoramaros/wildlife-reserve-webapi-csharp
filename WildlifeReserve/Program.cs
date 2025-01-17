@@ -1,3 +1,5 @@
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +10,7 @@ using WildlifeReserve.ExternalApis.iNaturalist.Services;
 using WildlifeReserve.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -72,8 +75,6 @@ builder.Services.AddSwaggerGen(options => {
     options.EnableAnnotations();
 });
 
-
-
 // Nastavení CORS (podle chrome AI rad)
 builder.Services.AddCors(options => {
     options.AddPolicy("MyCorsPolicy", builder => {
@@ -85,6 +86,18 @@ builder.Services.AddCors(options => {
     });
 });
 
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options => {
+        options.TokenValidationParameters = new TokenValidationParameters {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],
+            ValidAudience = builder.Configuration["Jwt:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:SecretKey"]))
+        };
+    });
+builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
@@ -105,8 +118,10 @@ app.UseHttpsRedirection();  // Přesměrování na HTTPS pro zajištění bezpe�
 app.UseCors("MyCorsPolicy");
 
 app.UseRouting();   // Umožňuje použití routování pro mapování požadavků HTTP na specifické akce kontrolérů.
+
 app.UseAuthentication();    // Aktivuje autentizaci pro ověření uživatele 
 app.UseAuthorization();     // Aktivuje autentizaci pro ověření uživatele
+
 app.MapControllers();     // Mapuje kontrolery na URL adresy. Pro Web api neni nutne dovnitr metody neco pridavat
 
 app.Run();  // Spustí aplikaci a zacne zpracovavat HTTP pozadavky

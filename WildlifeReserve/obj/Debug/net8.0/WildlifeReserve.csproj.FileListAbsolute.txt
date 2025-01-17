@@ -263,3 +263,11 @@
 /Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/bin/Debug/net8.0/WildlifeReserve.staticwebassets.endpoints.json
 /Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/obj/Debug/net8.0/staticwebassets.build.endpoints.json
 /Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/obj/Debug/net8.0/staticwebassets/msbuild.WildlifeReserve.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+/Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/bin/Debug/net8.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/bin/Debug/net8.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/bin/Debug/net8.0/Microsoft.IdentityModel.Logging.dll
+/Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.dll
+/Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/bin/Debug/net8.0/Microsoft.IdentityModel.Tokens.dll
+/Users/marosh/RiderProjects/ASPNET/vlastni/Wildlife_Reserve/Wildlife_Reserve_Csharp/WildlifeReserve/bin/Debug/net8.0/System.IdentityModel.Tokens.Jwt.dll
